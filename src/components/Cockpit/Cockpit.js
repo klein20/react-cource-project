@@ -8,7 +8,17 @@ const cockpit = (props) => {
       setTimeout(() => {
         alert('Saved data from cloud!');
       },1000);
-    }, []) ;
+      return () => {
+        console.log('[Cockpit.js] cleanup use in useEffect');
+      }
+    }, []);
+
+    useEffect(() => {
+      console.log('[Cockpit.js] 2nd useEffect');
+      return () => {
+        console.log('[Cockpit.js] cleanup use in 2nd useEffect');
+      }
+    });
 
 
     const assignedclasses = [];
